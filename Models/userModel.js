@@ -36,6 +36,11 @@ const userSchema = new mongoose.Schema({
                 required: true,
                 trim: true,
             },
+            gender: {
+                type: String,
+                enum: ['Male', 'Female', 'Others'],
+                required: true
+            }
         },
         dob: {
             type: Date,
@@ -75,7 +80,7 @@ const userSchema = new mongoose.Schema({
             required: true,
         },
     },
-    
+
     parentsDetails: {
         phone: {
             type: String,
@@ -95,6 +100,16 @@ const userSchema = new mongoose.Schema({
             required: true,
         },
     },
+    copyOfBill: {
+        public_id: {
+            type: String,
+            required: true,
+        },
+        secure_url: {
+            type: String,
+            required: true,
+        },
+    }
 
 }, {
     timestamps: true,
