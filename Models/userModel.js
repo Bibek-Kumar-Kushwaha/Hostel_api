@@ -40,11 +40,15 @@ const userSchema = new mongoose.Schema({
                 type: String,
                 enum: ['Male', 'Female', 'Others'],
                 required: true
-            }
-        },
-        dob: {
-            type: Date,
-            required: true,
+            },
+            dob: {
+                type: Date,
+                required: true,
+            },
+            education: {
+                type: String,
+            },
+
         },
 
         citizenshipDetails: {
@@ -82,13 +86,10 @@ const userSchema = new mongoose.Schema({
     },
 
     parentsDetails: {
-        phone: {
+        parentPhone: {
             type: String,
             required: true,
         },
-    },
-    education: {
-        type: String,
     },
     avatar: {
         public_id: {
