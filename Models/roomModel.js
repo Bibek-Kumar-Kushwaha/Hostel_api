@@ -7,27 +7,39 @@ const roomSchema = new mongoose.Schema({
         trim: true,
         unique: true,
     },
+    capacity: {
+        type: Number,
+        required: true,
+    },
     type: {
         type: String,
         enum: ['Single', 'Double', 'Triple', 'Dormitory'],
         required: true,
     },
-    capacity: {
-        type: Number,
-        required: true,
-    }, 
     availability: {
         type: Boolean,
         default: true,
     },
-    floor: {
-        type: Number,
+    studentName: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Student",
+        required: true,
+    },
+    floorNumber: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Hostel",
         required: true,
     },
     fees: {
-        type: Number,
-        require: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Fee",
+        required: true,
     },
+    furnitureId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Furniture",
+        required: true,
+    }
 }, { timestamps: true });
 
 const Room = mongoose.model('Room', roomSchema);
