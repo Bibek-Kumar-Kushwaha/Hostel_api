@@ -2,50 +2,29 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
 
-    credentialDetails: {
-        username: {
-            type: String,
-            required: true,
-            trim: true,
-            unique: true,
-        },
-        password: {
-            type: String,
-            required: true,
-        },
-        role: {
-            type: String,
-            enum: ['Resident', 'Admin', 'Staff', 'Manager'],
-            required: true,
-        }
+    username: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
     },
-    parentsDetails: {
-        parentPhone: {
-            type: String,
-            required: true,
-        },
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+        lowercase: true,
     },
-    avatar: {
-        public_id: {
-            type: String,
-            required: true,
-        },
-        secure_url: {
-            type: String,
-            required: true,
-        },
+    password: {
+        type: String,
+        required: true,
+        trim: true,
     },
-    copyOfBill: {
-        public_id: {
-            type: String,
-            required: true,
-        },
-        secure_url: {
-            type: String,
-            required: true,
-        },
-    }
-
+    role: {
+        type: String,
+        enum: ['Resident', 'Admin', 'Staff', 'Manager'],
+        required: true,
+    },
 }, {
     timestamps: true,
 });
